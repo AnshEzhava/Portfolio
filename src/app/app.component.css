@@ -1,0 +1,271 @@
+/* .header {
+  height: 75px;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h-container {
+  width: 75%;
+  height: 100%;
+  border: 1px solid white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.h-title {
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  min-height: 75px;
+  height: fit-content;
+  width: fit-content;
+  align-items: flex-start;
+  justify-content: center;
+} */
+
+/* Host component setup */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving dots background */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+/* Different sized particles */
+.particle.small {
+  width: 2px;
+  height: 2px;
+}
+
+.particle.medium {
+  width: 4px;
+  height: 4px;
+}
+
+.particle.large {
+  width: 6px;
+  height: 6px;
+  opacity: 0.4;
+}
+
+/* Random positioning and timing for particles */
+.particle:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+.particle:nth-child(2) {
+  left: 20%;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+.particle:nth-child(3) {
+  left: 30%;
+  animation-delay: 4s;
+  animation-duration: 10s;
+}
+.particle:nth-child(4) {
+  left: 40%;
+  animation-delay: 1s;
+  animation-duration: 15s;
+}
+.particle:nth-child(5) {
+  left: 50%;
+  animation-delay: 3s;
+  animation-duration: 9s;
+}
+.particle:nth-child(6) {
+  left: 60%;
+  animation-delay: 5s;
+  animation-duration: 11s;
+}
+.particle:nth-child(7) {
+  left: 70%;
+  animation-delay: 1.5s;
+  animation-duration: 13s;
+}
+.particle:nth-child(8) {
+  left: 80%;
+  animation-delay: 2.5s;
+  animation-duration: 14s;
+}
+.particle:nth-child(9) {
+  left: 90%;
+  animation-delay: 4.5s;
+  animation-duration: 7s;
+}
+.particle:nth-child(10) {
+  left: 15%;
+  animation-delay: 6s;
+  animation-duration: 16s;
+}
+.particle:nth-child(11) {
+  left: 25%;
+  animation-delay: 0.5s;
+  animation-duration: 8s;
+}
+.particle:nth-child(12) {
+  left: 35%;
+  animation-delay: 3.5s;
+  animation-duration: 12s;
+}
+.particle:nth-child(13) {
+  left: 45%;
+  animation-delay: 1.8s;
+  animation-duration: 9s;
+}
+.particle:nth-child(14) {
+  left: 55%;
+  animation-delay: 4.2s;
+  animation-duration: 11s;
+}
+.particle:nth-child(15) {
+  left: 65%;
+  animation-delay: 2.8s;
+  animation-duration: 13s;
+}
+.particle:nth-child(16) {
+  left: 75%;
+  animation-delay: 5.5s;
+  animation-duration: 10s;
+}
+.particle:nth-child(17) {
+  left: 85%;
+  animation-delay: 3.2s;
+  animation-duration: 14s;
+}
+.particle:nth-child(18) {
+  left: 95%;
+  animation-delay: 1.2s;
+  animation-duration: 15s;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.content {
+  text-align: left;
+  max-width: 800px;
+  padding: 0 20px;
+  /* border: 1px solid white; */
+}
+
+.hero-section {
+  color: white;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  margin-bottom: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.name-highlight {
+  color: #6366f1;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.typing-animation {
+  position: relative;
+  color: white;
+}
+
+.typing-animation::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  color: #6366f1;
+  animation: blink 1s infinite;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.8;
+  font-family: "Inter", sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+  }
+
+  .typing-animation::after {
+    right: -8px;
+  }
+}

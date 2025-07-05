@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  min-height: 100vh; /* Use min-height instead of height */
+}
