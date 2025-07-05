@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   deletingSpeed = 100;
   delayBetweenWords = 2000;
 
-  words = ['Developer...', 'Designer...', 'Undergrad...'];
+  words = ['Developer...', 'Designer...', 'Student...'];
   private typingInterval: any;
 
   ngOnInit() {
