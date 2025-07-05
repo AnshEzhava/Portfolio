@@ -63,4 +63,19 @@ export class AppComponent implements OnInit, OnDestroy {
       setTimeout(() => this.startTypingAnimation(), 500);
     }
   }
+
+  openLink(option: string) {
+    if (option == 'github') {
+      window.open('https://github.com/AnshEzhava', '_blank');
+    } else if (option == 'linkedin') {
+      window.open(
+        'https://www.linkedin.com/in/ansh-baiju-646984285/',
+        '_blank'
+      );
+    } else if (option == 'instagram') {
+      window.open('https://www.instagram.com/anshbaiju', '_blank');
+    } else if (option == 'repo') {
+      window.open('https://github.com/AnshEzhava/Portfolio', '_blank');
+    }
+  }
 }

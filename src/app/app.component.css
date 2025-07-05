@@ -200,11 +200,11 @@
   /* border: 1px solid white; */
 }
 
-.hero-section {
+.main-section {
   color: white;
 }
 
-.hero-title {
+.main-title {
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 700;
   line-height: 1.1;
@@ -247,25 +247,61 @@
   }
 }
 
-.hero-subtitle {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 300;
-  margin: 0;
-  opacity: 0.8;
-  font-family: "Inter", sans-serif;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .hero-title {
+  .main-title {
     font-size: clamp(2.5rem, 12vw, 4rem);
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.2rem, 6vw, 1.8rem);
   }
 
   .typing-animation::after {
     right: -8px;
   }
+}
+
+.icon-container {
+  display: flex;
+  gap: 30px;
+}
+
+.github-icon {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.github-icon:hover {
+  fill: #6366f1;
+  cursor: pointer;
+}
+
+.linkedin-icon {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.linkedin-icon:hover {
+  fill: #6366f1;
+  cursor: pointer;
+}
+
+.instagram-icon {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.instagram-icon:hover {
+  fill: #6366f1;
+  cursor: pointer;
+}
+
+.repo-icon {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.repo-icon:hover {
+  fill: #6366f1;
+  cursor: pointer;
 }
