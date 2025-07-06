@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private typingInterval: any;
 
   ngOnInit() {
+    inject();
+    injectSpeedInsights();
     this.startTypingAnimation();
   }
 
