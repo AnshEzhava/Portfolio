@@ -226,6 +226,8 @@
 }
 
 .github-icon {
+  width: clamp(20px, 2vw, 40px);
+  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -236,6 +238,8 @@
 }
 
 .linkedin-icon {
+  width: clamp(20px, 2vw, 40px);
+  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -246,6 +250,8 @@
 }
 
 .instagram-icon {
+  width: clamp(20px, 2vw, 40px);
+  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -256,6 +262,8 @@
 }
 
 .repo-icon {
+  width: clamp(20px, 2vw, 40px);
+  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
   position: absolute;
