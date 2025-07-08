@@ -7,12 +7,13 @@
 }
 
 .particles-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .particle {
@@ -148,19 +149,117 @@
   }
 }
 
-.container {
+.pages-container {
   position: relative;
-  z-index: 1;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.content {
-  text-align: left;
-  max-width: 800px;
-  padding: 0 20px;
+.page {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(1px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  border-left: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.page[data-page="0"] {
+  width: 100%;
+  right: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: none;
+}
+
+.page[data-page="1"] {
+  width: 85%;
+}
+
+.page[data-page="2"] {
+  width: 70%;
+}
+
+.page[data-page="3"] {
+  width: 55%;
+}
+
+.page.active {
+  right: 0;
+}
+
+.page.active[data-page="0"] {
+  z-index: 1;
+}
+.page.active[data-page="1"] {
+  z-index: 2;
+}
+.page.active[data-page="2"] {
+  z-index: 3;
+}
+.page.active[data-page="3"] {
+  z-index: 4;
+}
+
+.page-content {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.page-header h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 2rem;
+  color: #6366f1;
+  font-weight: 700;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-body {
+  max-width: 600px;
+}
+
+.page-body p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.project-item,
+.contact-item {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-left: 3px solid rgba(99, 102, 241, 0.5);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 8px 8px 0;
+}
+
+.project-item h3,
+.contact-item h3 {
+  color: #6366f1;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-item p,
+.contact-item p {
+  margin-bottom: 0;
+  font-size: 1rem;
 }
 
 .main-section {
@@ -210,24 +309,12 @@
   }
 }
 
-@media (max-width: 768px) {
-  .main-title {
-    font-size: clamp(2.5rem, 12vw, 4rem);
-  }
-
-  .typing-animation::after {
-    right: -8px;
-  }
-}
-
 .icon-container {
   display: flex;
   gap: 30px;
 }
 
 .github-icon {
-  width: clamp(20px, 2vw, 40px);
-  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -238,8 +325,6 @@
 }
 
 .linkedin-icon {
-  width: clamp(20px, 2vw, 40px);
-  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -250,8 +335,6 @@
 }
 
 .instagram-icon {
-  width: clamp(20px, 2vw, 40px);
-  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
@@ -262,16 +345,204 @@
 }
 
 .repo-icon {
-  width: clamp(20px, 2vw, 40px);
-  height: clamp(20px, 2vw, 40px);
   fill: #ffffff;
   transition: fill 0.3s ease;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 1001;
 }
 
 .repo-icon:hover {
   fill: #6366f1;
   cursor: pointer;
+}
+
+.edge-hint {
+  position: fixed;
+  top: 53%;
+  right: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.edge-hint.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: edgeHintPulse 3s ease-in-out infinite;
+}
+
+.edge-hint-line {
+  width: 3px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #6366f1, transparent);
+  margin-bottom: 10px;
+}
+
+.edge-hint-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  transform: rotate(180deg);
+}
+
+@keyframes edgeHintPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
+.right-edge-trigger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100vh;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.nav-arrow {
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(99, 102, 241, 0.8);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+}
+
+.nav-arrow.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-arrow:hover {
+  background: rgba(99, 102, 241, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+.nav-arrow:hover svg {
+  transform: translateX(2px);
+}
+
+.back-button {
+  position: fixed;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(99, 102, 241, 0.8);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+}
+
+.back-button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-button:hover {
+  background: rgba(99, 102, 241, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.back-button svg {
+  transition: transform 0.2s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-2px);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .typing-animation::after {
+    right: -8px;
+  }
+
+  .page[data-page="1"] {
+    width: 90%;
+  }
+  .page[data-page="2"] {
+    width: 80%;
+  }
+  .page[data-page="3"] {
+    width: 70%;
+  }
+
+  .page-content {
+    padding: 1rem;
+  }
+
+  .page-header h2 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .page-body p {
+    font-size: 1rem;
+  }
+
+  .nav-arrow,
+  .back-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-arrow {
+    right: 10px;
+  }
+
+  .back-button {
+    left: 10px;
+  }
+
+  .nav-arrow svg,
+  .back-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .edge-hint-text {
+    font-size: 10px;
+  }
 }
