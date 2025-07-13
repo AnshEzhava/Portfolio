@@ -35,7 +35,7 @@
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="github-icon"
+            class="github-icon icons"
             (click)="openLink('github')"
           >
             <path
@@ -52,7 +52,7 @@
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="linkedin-icon"
+            class="linkedin-icon icons"
             (click)="openLink('linkedin')"
           >
             <path
@@ -77,7 +77,7 @@
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="instagram-icon"
+            class="instagram-icon icons"
             (click)="openLink('instagram')"
           >
             <path
@@ -94,6 +94,38 @@
               d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
             />
           </svg>
+          <!-- Mail Icon -->
+          <svg
+            class="mail-icon icons"
+            (click)="openLink('mail')"
+            width="50px"
+            height="50px"
+            viewBox="0 -4 32 32"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+          >
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill-rule="evenodd"
+              sketch:type="MSPage"
+            >
+              <g
+                id="Icon-Set"
+                sketch:type="MSLayerGroup"
+                transform="translate(-412.000000, -259.000000)"
+              >
+                <path
+                  d="M442,279 C442,279.203 441.961,279.395 441.905,279.578 L433,270 L442,263 L442,279 L442,279 Z M415.556,280.946 L424.58,271.33 L428,273.915 L431.272,271.314 L440.444,280.946 C440.301,280.979 415.699,280.979 415.556,280.946 L415.556,280.946 Z M414,279 L414,263 L423,270 L414.095,279.578 C414.039,279.395 414,279.203 414,279 L414,279 Z M441,261 L428,271 L415,261 L441,261 L441,261 Z M440,259 L416,259 C413.791,259 412,260.791 412,263 L412,279 C412,281.209 413.791,283 416,283 L440,283 C442.209,283 444,281.209 444,279 L444,263 C444,260.791 442.209,259 440,259 L440,259 Z"
+                  id="mail"
+                  sketch:type="MSShapeGroup"
+                ></path>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
@@ -102,7 +134,7 @@
   <div class="page" [class.active]="currentPageIndex >= 1" [attr.data-page]="1">
     <div class="page-content">
       <div class="page-header">
-        <h2>About Me</h2>
+        <h2>My Career</h2>
       </div>
       <div class="page-body">
         <p>
@@ -195,7 +227,7 @@
   viewBox="0 0 16 16"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  class="repo-icon"
+  class="repo-icon icons"
   (click)="openLink('repo')"
 >
   <path
@@ -232,6 +264,7 @@
   </svg>
 </div>
 
+<!-- Back Button (shows when not on first page) -->
 <div
   class="back-button"
   [class.visible]="currentPageIndex > 0"
@@ -240,4 +273,12 @@
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
     <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z" />
   </svg>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-notification" [class.visible]="showToast">
+  <div class="toast-content">
+    <span class="toast-message">{{ toastMessage }}</span>
+    <button class="toast-close" (click)="showToast = false">×</button>
+  </div>
 </div>

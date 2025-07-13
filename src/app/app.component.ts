@@ -27,6 +27,11 @@ export class AppComponent implements OnInit, OnDestroy {
   currentPageIndex = 0;
   maxPages = 4; // Home, About, Projects, Contact
 
+  // Toast notification properties
+  showToast = false;
+  toastMessage = '';
+  private toastTimeout: any;
+
   // Define your pages with content
   pages = [
     { title: 'Home', content: 'home' },
@@ -47,6 +52,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     if (this.arrowHideTimeout) {
       clearTimeout(this.arrowHideTimeout);
+    }
+    if (this.toastTimeout) {
+      clearTimeout(this.toastTimeout);
     }
   }
 
@@ -115,8 +123,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onArrowClick() {
     if (this.currentPageIndex < this.maxPages - 1) {
       this.currentPageIndex++;
-      this.showArrow = false; // Hide arrow after clicking
-      console.log(`Navigated to page ${this.currentPageIndex}`);
+      this.showArrow = false;
     }
   }
 
@@ -138,6 +145,41 @@ export class AppComponent implements OnInit, OnDestroy {
       window.open('https://www.instagram.com/anshbaiju', '_blank');
     } else if (option == 'repo') {
       window.open('https://github.com/AnshEzhava/Portfolio', '_blank');
+    } else if (option == 'mail') {
+      this.copyToClipboard('anshdpsg@gmail.com');
     }
+  }
+
+  // Add method to copy text to clipboard
+  async copyToClipboard(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      this.showToastNotification('Email copied to clipboard!');
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      this.showToastNotification('Email copied to clipboard!');
+    }
+  }
+
+  // Toast notification method
+  showToastNotification(message: string) {
+    this.toastMessage = message;
+    this.showToast = true;
+
+    // Clear any existing timeout
+    if (this.toastTimeout) {
+      clearTimeout(this.toastTimeout);
+    }
+
+    // Hide toast after 3 seconds
+    this.toastTimeout = setTimeout(() => {
+      this.showToast = false;
+    }, 3000);
   }
 }
