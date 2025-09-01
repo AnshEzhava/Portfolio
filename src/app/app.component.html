@@ -241,7 +241,7 @@
   />
 </svg>
 
-<div class="edge-hint" [class.visible]="currentPageIndex === 0">
+<!-- <div class="edge-hint" [class.visible]="currentPageIndex === 0">
   <div class="edge-hint-line"></div>
   <div class="edge-hint-text">Swipe →</div>
 </div>
@@ -250,9 +250,9 @@
   class="right-edge-trigger"
   (mouseenter)="onRightEdgeHover()"
   (mouseleave)="onRightEdgeLeave()"
-></div>
+></div> -->
 
-<div
+<!-- <div
   class="nav-arrow"
   [class.visible]="showArrow"
   (mouseenter)="onArrowHover()"
@@ -264,7 +264,6 @@
   </svg>
 </div>
 
-<!-- Back Button (shows when not on first page) -->
 <div
   class="back-button"
   [class.visible]="currentPageIndex > 0"
@@ -273,7 +272,7 @@
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
     <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z" />
   </svg>
-</div>
+</div> -->
 
 <!-- Toast Notification -->
 <div class="toast-notification" [class.visible]="showToast">
