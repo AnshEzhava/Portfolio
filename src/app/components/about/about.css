@@ -1,0 +1,77 @@
+.about {
+  padding: clamp(5rem, 12vw, 11rem) 0 clamp(3rem, 7vw, 6rem);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.about__statement {
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.about__statement em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.about__body {
+  padding-top: 0.5rem;
+}
+
+.about__para {
+  color: var(--muted);
+  font-size: clamp(1rem, 0.95rem + 0.4vw, 1.18rem);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.about__para + .about__para {
+  margin-top: 1.25rem;
+}
+
+.about__stack {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.about__stack-label {
+  color: var(--muted);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.about__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about__chip {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.about__chip:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+@media (max-width: 880px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

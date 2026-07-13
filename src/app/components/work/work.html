@@ -1,0 +1,29 @@
+<section class="work" id="work">
+  <div class="u-shell">
+    <div class="u-eyebrow u-mono" reveal>
+      <span class="num">02</span><span>Selected Work</span>
+    </div>
+
+    <ul class="work__list">
+      @for (p of projects; track p.index) {
+        <li class="work__item" reveal [revealDelay]="$index * 70">
+          <a class="work__row" [href]="p.href" target="_blank" rel="noopener">
+            <span class="work__index u-mono">{{ p.index }}</span>
+
+            <span class="work__main">
+              <span class="work__title u-display">{{ p.title }}</span>
+              <span class="work__blurb">{{ p.blurb }}</span>
+            </span>
+
+            <span class="work__meta">
+              <span class="work__stack u-mono">{{ p.stack }}</span>
+              <span class="work__year u-mono">{{ p.role }} · {{ p.year }}</span>
+            </span>
+
+            <span class="work__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,129 @@
+.contact {
+  padding: clamp(5rem, 12vw, 11rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: end;
+}
+
+.contact__headline {
+  font-size: clamp(3rem, 9vw, 8rem);
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+.contact__accent {
+  color: var(--accent);
+}
+
+.contact__email {
+  display: inline-block;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: 0.2rem;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.contact__email:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.contact__copy {
+  display: inline-block;
+  margin-top: 1.2rem;
+  margin-left: 0.1rem;
+  color: var(--muted);
+}
+
+.contact__socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__social {
+  border-top: 1px solid var(--line);
+}
+
+.contact__social:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.contact__social-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  transition: padding-left 0.4s var(--ease);
+}
+
+.contact__social-row:hover {
+  padding-left: 0.6rem;
+}
+
+.contact__social-label {
+  color: var(--muted);
+}
+
+.contact__social-handle {
+  font-size: 1.05rem;
+}
+
+.contact__social-arrow {
+  color: var(--accent);
+  transition: transform 0.4s var(--ease);
+}
+
+.contact__social-row:hover .contact__social-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Toast */
+.contact__toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, 1.5rem);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.3rem;
+  border-radius: 999px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 200;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease),
+    visibility 0.4s;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.contact__toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 880px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__social-row,
+  .contact__social-arrow,
+  .contact__email {
+    transition: none;
+  }
+}

@@ -1,0 +1,33 @@
+<nav class="nav">
+  <div class="nav__inner u-shell">
+    <a class="nav__brand u-display" href="#top" aria-label="Back to top">
+      {{ profile.name }}<span class="nav__dot">.</span>
+    </a>
+
+    <div class="nav__meta u-mono">
+      <span class="nav__status">
+        <span class="nav__pulse" aria-hidden="true"></span>
+        Open to work
+      </span>
+      <span class="nav__time" aria-label="Local time">
+        {{ profile.location }} · {{ clock() }}
+      </span>
+    </div>
+
+    <div class="nav__actions">
+      <a class="nav__link u-mono u-link" href="#work">Work</a>
+      <a class="nav__link u-mono u-link" href="#about">About</a>
+      <a class="nav__link u-mono u-link" href="#contact">Contact</a>
+      <button
+        type="button"
+        class="nav__theme"
+        (click)="toggleTheme()"
+        [attr.aria-label]="
+          theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+        "
+      >
+        <span class="nav__theme-dot" [class.is-dark]="theme() === 'dark'"></span>
+      </button>
+    </div>
+  </div>
+</nav>

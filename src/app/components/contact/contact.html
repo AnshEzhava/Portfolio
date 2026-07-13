@@ -1,0 +1,50 @@
+<section class="contact" id="contact">
+  <div class="u-shell">
+    <div class="u-eyebrow u-mono" reveal>
+      <span class="num">03</span><span>Contact</span>
+    </div>
+
+    <div class="contact__grid">
+      <div class="contact__lead">
+        <h2 class="contact__headline u-display" reveal>
+          Let’s build<br />something<span class="contact__accent">.</span>
+        </h2>
+
+        <a
+          class="contact__email u-display"
+          href="mailto:{{ profile.email }}"
+          reveal
+          [revealDelay]="80"
+        >
+          {{ profile.email }}
+        </a>
+
+        <button
+          type="button"
+          class="contact__copy u-mono u-link"
+          (click)="copyEmail()"
+          reveal
+          [revealDelay]="120"
+        >
+          Copy email ↗
+        </button>
+      </div>
+
+      <ul class="contact__socials" reveal [revealDelay]="160">
+        @for (s of socials; track s.label) {
+          <li class="contact__social">
+            <a class="contact__social-row" [href]="s.href" target="_blank" rel="noopener">
+              <span class="u-mono contact__social-label">{{ s.label }}</span>
+              <span class="contact__social-handle">{{ s.handle }}</span>
+              <span class="contact__social-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact__toast" [class.is-visible]="toast()" role="status" aria-live="polite">
+    {{ toast() }}
+  </div>
+</section>

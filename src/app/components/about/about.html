@@ -1,0 +1,37 @@
+<section class="about" id="about">
+  <div class="u-shell">
+    <div class="u-eyebrow u-mono" reveal>
+      <span class="num">01</span><span>About</span>
+    </div>
+
+    <div class="about__grid">
+      <p class="about__statement u-display" reveal>
+        Developer and designer working at the seam where
+        <em>craft</em> meets <em>code</em>.
+      </p>
+
+      <div class="about__body">
+        <!-- TODO: replace with your real bio -->
+        <p class="about__para" reveal [revealDelay]="60">
+          I’m {{ profile.name }} — a student who builds for the web. I care about
+          interfaces that feel fast, legible, and a little bit alive: clean
+          type, honest motion, and details that hold up on a second look.
+        </p>
+        <p class="about__para" reveal [revealDelay]="120">
+          Lately I’ve been deep in design systems, real-time rendering, and the
+          quiet engineering that makes a page feel instant. When I’m not
+          shipping, I’m redrawing it for the tenth time.
+        </p>
+
+        <div class="about__stack" reveal [revealDelay]="180">
+          <span class="u-mono about__stack-label">Currently working with</span>
+          <ul class="about__chips">
+            @for (item of stack; track item) {
+              <li class="about__chip u-mono">{{ item }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
